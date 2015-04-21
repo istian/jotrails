@@ -11,6 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20150421014843) do
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name",      :limit => 50
+    t.string   "last_name",       :limit => 50
+    t.string   "email"
+    t.date     "birthdate"
+    t.string   "password_salt"
+    t.string   "password_hashed"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
 
 end

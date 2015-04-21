@@ -1,4 +1,15 @@
 Jotrails::Application.routes.draw do
+
+  resources :users
+  get "user/register", :to => "user#new"
+  post "user/create", :to => "user#create"
+  get "user/dashboard", :to => "user#dashboard"
+
+  resource :session
+  get "user/login", :to => "session#new"
+  post "user/authenticate", :to => "session#create"
+  get "user/logout", :to => "session#destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
