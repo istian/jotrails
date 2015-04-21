@@ -22,6 +22,19 @@ end
 
 gem 'jquery-rails'
 
+gem 'bcrypt-ruby', :require => 'bcrypt'
+
+group :development do
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'faker'
+  gem 'rspec-rails'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
