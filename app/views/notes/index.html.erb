@@ -1,0 +1,17 @@
+<h1><%= @note_type.capitalize %> Notes </h1>
+
+<table>
+  <tr>
+    <td>Title</td>
+    <td>Actions</td>
+  </tr>
+  <% @notes.each do |n| %>
+      <tr>
+        <td><%= n.title %></td>
+        <td><%= link_to "View", note_helper_path(n.type, n) %> | <%= link_to "Edit", note_helper_path(n.type, n, :edit)%> | <%= link_to "Delete", note_helper_path(n.type, n), :method => :delete, :data => {:confirm => "Are you sure you want to delete this note?"}%></td>
+      </tr>
+  <% end %>
+  <tr>
+    <td colspan="2"><%= link_to "New #{@note_type}", note_helper_path(@note_type, nil, :new) %></td>
+  </tr>
+</table>

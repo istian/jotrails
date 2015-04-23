@@ -10,6 +10,10 @@ Jotrails::Application.routes.draw do
   post "user/authenticate", :to => "session#create"
   get "user/logout", :to => "session#destroy"
 
+  resources :texts, :controller => "notes", :type => "Text"
+  resources :htmls, :controller => "notes", :type => "Html"
+  resources :markdowns, :controller => "notes", :type => "Markdown"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
